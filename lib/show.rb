@@ -3,7 +3,7 @@ require_relative 'board.rb'
 class Show
 
   def show_board(board)
-    #TO DO : affiche sur le terminal l'objet de classe Board en entrée. S'active avec un Show.new.show_board(instance_de_Board)
+    # Display in the terminal the object of class Board in input. It is activated with Show.new.show_board(instance_of_Board)
     puts "-"*25
     puts "|       |       |       |"
     puts "|   #{board.board_cases_array[0].board_case_value}   |   #{board.board_cases_array[3].board_case_value}   |   #{board.board_cases_array[6].board_case_value}   |"
