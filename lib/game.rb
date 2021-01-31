@@ -1,8 +1,20 @@
 class Game
   #TO DO : la classe a plusieurs attr_accessor: le current_player (égal à un objet Player), le status (en cours, nul ou un objet Player s'il gagne), le Board et un array contenant les 2 joueurs.
+  attr_accessor :current_player, :status, :board, :players_array
 
   def initialize
     #TO DO : créé 2 joueurs, créé un board, met le status à "on going", défini un current_player
+
+      puts "Player 1, you'll be X. What is your name?"
+      player1 = Player.new("#{gets.chomp}", "X")
+      puts "Player 2, you'll be O. What is your name?"
+      player2 = Player.new("#{gets.chomp}", "O")
+
+      @current_player = player1
+      @status = "ongoing"
+      @board = Board.new
+      @players_array = [player1, player2]
+
   end
 
   def turn
