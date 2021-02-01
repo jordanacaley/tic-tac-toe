@@ -25,9 +25,14 @@ class Board
 
   def play_turn(player)
     #1) Ask the right player what he/she wants to do
-    puts "#{player.name}, which square do you want to play in?"
+    puts "#{player.name}, which square do you want to play in"
     player_move = gets.chomp
-    
+    # If the player doesn't enter A1-C3, ask again
+    while player_move != "A1" && player_move != "A2" && player_move != "A3" && player_move != "B1" && player_move != "B2" && player_move != "B3" && player_move != "C1" && player_move != "C2" && player_move != "C3" 
+      puts "Sorry, that's not a valid square. Try again"
+      player_move = gets.chomp
+      break
+    end
     #2) Change the BoardCase played based on the value of the player (X or O)
     i = 0
     while i < 9
