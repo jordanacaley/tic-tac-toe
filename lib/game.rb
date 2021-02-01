@@ -27,7 +27,7 @@ class Game
   end
 
   def turn
-    #TO DO : méthode faisant appelle aux méthodes des autres classes (notamment à l'instance de Board). Elle affiche le plateau, demande au joueur ce qu'il joue, vérifie si un joueur a gagné, passe au joueur suivant si la partie n'est pas finie.
+    # Show the board, ask the player what they want to do, check if someone has won, go to the next player if the game isn't over
     Show.new.show_board(@board)
     while @board.victory? == false
       @board.play_turn(@players_array[0])
