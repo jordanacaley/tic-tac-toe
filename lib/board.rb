@@ -2,15 +2,10 @@ require 'bundler'
 Bundler.require
 
 require_relative 'board_case.rb'
-require_relative 'player.rb'
-require_relative 'game.rb'
-
 
 class Board
-  # board_cases_array is an array containing the 9 BoardCases
+  # board_cases_array is an array containing the 9 BoardCases, count_turn counts the number of turns taken
   attr_accessor :board_cases_array, :count_turn
-  #Optionnellement on peut aussi lui rajouter un autre sous le nom @count_turn pour compter le nombre de coups joué
-
 
   def initialize
     # Create 9 instances of BoardCases
@@ -77,13 +72,11 @@ class Board
         puts "O wins!"
       elsif @board_cases_array[2].board_case_value == "O" && @board_cases_array[4].board_case_value == "O" && @board_cases_array[6].board_case_value == "O"
         puts "O wins!"
-      elsif @count_turn != 9
-        puts "Game isn't over yet!"
+      elsif @count_turn < 9
+        return false
       else 
         puts "It's a draw"
       end
   end
 
 end
-
-binding.pry

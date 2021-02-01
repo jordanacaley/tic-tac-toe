@@ -1,5 +1,3 @@
-require_relative 'board.rb'
-
 class Show
 
   def show_board(board)
@@ -21,5 +19,3 @@ class Show
   end
 
 end
-
-Show.new.show_board(Board.new)
