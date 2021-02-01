@@ -8,7 +8,7 @@ require_relative 'game.rb'
 
 class Board
   # board_cases_array is an array containing the 9 BoardCases
-  attr_accessor :board_cases_array
+  attr_accessor :board_cases_array, :count_turn
   #Optionnellement on peut aussi lui rajouter un autre sous le nom @count_turn pour compter le nombre de coups joué
 
 
@@ -25,6 +25,7 @@ class Board
     board_case_C3 = BoardCase.new(" ", "C3")
     # Store these instances in an array that is the attr_accessor of the class
     @board_cases_array = [board_case_A1, board_case_A2, board_case_A3, board_case_B1, board_case_B2, board_case_B3, board_case_C1, board_case_C2, board_case_C3]
+    @count_turn = 0
   end
 
   def play_turn(player)
@@ -39,10 +40,48 @@ class Board
       end
       i = i + 1
     end
+    @count_turn = @count_turn + 1
   end
 
   def victory?
-    #TO DO : une méthode qui vérifie le plateau et indique s'il y a un vainqueur ou match nul
+    # Method that verifies the board and indicates if there is a winner or it's a draw
+      if @board_cases_array[0].board_case_value == "X" && @board_cases_array[1].board_case_value == "X" && @board_cases_array[2].board_case_value == "X"
+        puts "X wins!"
+      elsif @board_cases_array[3].board_case_value == "X" && @board_cases_array[4].board_case_value == "X" && @board_cases_array[5].board_case_value == "X"
+        puts "X wins!"
+      elsif @board_cases_array[6].board_case_value == "X" && @board_cases_array[7].board_case_value == "X" && @board_cases_array[8].board_case_value == "X"
+        puts "X wins!"
+      elsif @board_cases_array[0].board_case_value == "X" && @board_cases_array[3].board_case_value == "X" && @board_cases_array[6].board_case_value == "X"
+        puts "X wins!"
+      elsif @board_cases_array[1].board_case_value == "X" && @board_cases_array[4].board_case_value == "X" && @board_cases_array[7].board_case_value == "X"
+        puts "X wins!"
+      elsif @board_cases_array[2].board_case_value == "X" && @board_cases_array[5].board_case_value == "X" && @board_cases_array[8].board_case_value == "X"
+        puts "X wins!"
+      elsif @board_cases_array[0].board_case_value == "X" && @board_cases_array[4].board_case_value == "X" && @board_cases_array[8].board_case_value == "X"
+        puts "X wins!"
+      elsif @board_cases_array[2].board_case_value == "X" && @board_cases_array[4].board_case_value == "X" && @board_cases_array[6].board_case_value == "X"
+        puts "X wins!"
+      elsif @board_cases_array[0].board_case_value == "O" && @board_cases_array[1].board_case_value == "O" && @board_cases_array[2].board_case_value == "O"
+        puts "O wins!"
+      elsif @board_cases_array[3].board_case_value == "O" && @board_cases_array[4].board_case_value == "O" && @board_cases_array[5].board_case_value == "O"
+        puts "O wins!"
+      elsif @board_cases_array[6].board_case_value == "O" && @board_cases_array[7].board_case_value == "O" && @board_cases_array[8].board_case_value == "O"
+        puts "O wins!"
+      elsif @board_cases_array[0].board_case_value == "O" && @board_cases_array[3].board_case_value == "O" && @board_cases_array[6].board_case_value == "O"
+        puts "O wins!"
+      elsif @board_cases_array[1].board_case_value == "O" && @board_cases_array[4].board_case_value == "O" && @board_cases_array[7].board_case_value == "O"
+        puts "O wins!"
+      elsif @board_cases_array[2].board_case_value == "O" && @board_cases_array[5].board_case_value == "O" && @board_cases_array[8].board_case_value == "O"
+        puts "O wins!"
+      elsif @board_cases_array[0].board_case_value == "O" && @board_cases_array[4].board_case_value == "O" && @board_cases_array[8].board_case_value == "O"
+        puts "O wins!"
+      elsif @board_cases_array[2].board_case_value == "O" && @board_cases_array[4].board_case_value == "O" && @board_cases_array[6].board_case_value == "O"
+        puts "O wins!"
+      elsif @count_turn != 9
+        puts "Game isn't over yet!"
+      else 
+        puts "It's a draw"
+      end
   end
 
 end
