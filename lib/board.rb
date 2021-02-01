@@ -24,7 +24,7 @@ class Board
   end
 
   def play_turn(player)
-    #1) Ask the right player what they want to do
+    # Ask the right player what they want to do
     puts "#{player.name}, which square do you want to play in"
     player_move = gets.chomp
     # If the player doesn't enter A1-C3, ask again
@@ -32,7 +32,16 @@ class Board
       puts "Sorry, that's not a valid square. Try again"
       player_move = gets.chomp
     end
-    #2) Change the BoardCase played based on the value of the player (X or O)
+    # If the player enters a square that's already occupied, ask again
+    n = 0
+    while n < 9
+      if board_cases_array[n].board_case_id == player_move && board_cases_array[n].board_case_value == "X" || board_cases_array[n].board_case_value == "O"
+        puts "Sorry, that square is already occupied. Try again"
+        player_move = gets.chomp
+      end
+      n = n + 1
+    end
+    # Change the BoardCase played based on the value of the player (X or O)
     i = 0
     while i < 9
       if player_move == @board_cases_array[i].board_case_id
