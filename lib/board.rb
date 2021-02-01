@@ -1,7 +1,8 @@
 require 'bundler'
 Bundler.require
 
-require_relative 'board_case.rb'
+$:.unshift File.expand_path("./../lib", __FILE__)
+require 'board_case'
 
 class Board
   # board_cases_array is an array containing the 9 BoardCases, count_turn counts the number of turns taken
@@ -35,7 +36,7 @@ class Board
     # If the player enters a square that's already occupied, ask again
     n = 0
     while n < 9
-      if board_cases_array[n].board_case_id == player_move && (board_cases_array[n].board_case_value == "X" || board_cases_array[n].board_case_value == "O")
+      while board_cases_array[n].board_case_id == player_move && (board_cases_array[n].board_case_value == "X" || board_cases_array[n].board_case_value == "O")
         puts "Sorry, that square is already occupied. Try again"
         player_move = gets.chomp
       end

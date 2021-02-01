@@ -1,9 +1,10 @@
 require 'bundler'
 Bundler.require
 
-require_relative 'board.rb'
-require_relative 'player.rb'
-require_relative 'show.rb'
+$:.unshift File.expand_path("./../lib", __FILE__)
+require 'board'
+require 'player'
+require 'show'
 
 class Game
   #current_player is a Player object, status is ongoing, nul or a Player object if he/she has won, the Board, and an array containing the 2 players

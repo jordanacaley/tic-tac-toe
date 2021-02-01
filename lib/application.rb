@@ -1,7 +1,8 @@
 require 'bundler'
 Bundler.require
 
-require_relative 'game.rb'
+$:.unshift File.expand_path("./../lib", __FILE__)
+require 'game'
 
 class Application
   def perform
