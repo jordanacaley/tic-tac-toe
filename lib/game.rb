@@ -38,14 +38,33 @@ class Game
       @board.play_turn(@players_array[1])
       Show.new.show_board(@board)
     end
+    game_end
+    puts "Do you want to play again? Y or N?"
+    play_again = gets.chomp
+    if play_again == "Y"
+      new_round
+    end
   end
 
   def new_round
-    # TO DO : relance une partie en initialisant un nouveau board mais en gardant les mêmes joueurs.
+    # Restarts the game resetting the board but keeping the same players
+    @board = Board.new
+    turn
   end
 
   def game_end
-    # TO DO : permet l'affichage de fin de partie quand un vainqueur est détecté ou si il y a match nul
+    # Show the game is over when someone wins or if there's a draw
+    puts "Game over!"
+    if @board.victory? == "X"
+      puts "#{@players_array[0].name} won!"
+      @status = @players_array[0]
+    elsif @board.victory? == "O"
+      puts "#{@players_array[1].name} won!"
+      @status = @players_array[1]
+    elsif @board.victory? == "draw"
+      puts "It's a draw!"
+      @status = "nul"
+    end
   end    
 
 end

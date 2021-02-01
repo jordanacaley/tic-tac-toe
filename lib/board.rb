@@ -27,6 +27,7 @@ class Board
     #1) Ask the right player what he/she wants to do
     puts "#{player.name}, which square do you want to play in?"
     player_move = gets.chomp
+    
     #2) Change the BoardCase played based on the value of the player (X or O)
     i = 0
     while i < 9
@@ -41,41 +42,41 @@ class Board
   def victory?
     # Method that verifies the board and indicates if there is a winner or it's a draw
       if @board_cases_array[0].board_case_value == "X" && @board_cases_array[1].board_case_value == "X" && @board_cases_array[2].board_case_value == "X"
-        puts "X wins!"
+        return "X"
       elsif @board_cases_array[3].board_case_value == "X" && @board_cases_array[4].board_case_value == "X" && @board_cases_array[5].board_case_value == "X"
-        puts "X wins!"
+        return "X"
       elsif @board_cases_array[6].board_case_value == "X" && @board_cases_array[7].board_case_value == "X" && @board_cases_array[8].board_case_value == "X"
-        puts "X wins!"
+        return "X"
       elsif @board_cases_array[0].board_case_value == "X" && @board_cases_array[3].board_case_value == "X" && @board_cases_array[6].board_case_value == "X"
-        puts "X wins!"
+        return "X"
       elsif @board_cases_array[1].board_case_value == "X" && @board_cases_array[4].board_case_value == "X" && @board_cases_array[7].board_case_value == "X"
-        puts "X wins!"
+        return "X"
       elsif @board_cases_array[2].board_case_value == "X" && @board_cases_array[5].board_case_value == "X" && @board_cases_array[8].board_case_value == "X"
-        puts "X wins!"
+        return "X"
       elsif @board_cases_array[0].board_case_value == "X" && @board_cases_array[4].board_case_value == "X" && @board_cases_array[8].board_case_value == "X"
-        puts "X wins!"
+        return "X"
       elsif @board_cases_array[2].board_case_value == "X" && @board_cases_array[4].board_case_value == "X" && @board_cases_array[6].board_case_value == "X"
-        puts "X wins!"
+        return "X"
       elsif @board_cases_array[0].board_case_value == "O" && @board_cases_array[1].board_case_value == "O" && @board_cases_array[2].board_case_value == "O"
-        puts "O wins!"
+        return "O"
       elsif @board_cases_array[3].board_case_value == "O" && @board_cases_array[4].board_case_value == "O" && @board_cases_array[5].board_case_value == "O"
-        puts "O wins!"
+        return "O"
       elsif @board_cases_array[6].board_case_value == "O" && @board_cases_array[7].board_case_value == "O" && @board_cases_array[8].board_case_value == "O"
-        puts "O wins!"
+        return "O"
       elsif @board_cases_array[0].board_case_value == "O" && @board_cases_array[3].board_case_value == "O" && @board_cases_array[6].board_case_value == "O"
-        puts "O wins!"
+        return "O"
       elsif @board_cases_array[1].board_case_value == "O" && @board_cases_array[4].board_case_value == "O" && @board_cases_array[7].board_case_value == "O"
-        puts "O wins!"
+        return "O"
       elsif @board_cases_array[2].board_case_value == "O" && @board_cases_array[5].board_case_value == "O" && @board_cases_array[8].board_case_value == "O"
-        puts "O wins!"
+        return "O"
       elsif @board_cases_array[0].board_case_value == "O" && @board_cases_array[4].board_case_value == "O" && @board_cases_array[8].board_case_value == "O"
-        puts "O wins!"
+        return "O"
       elsif @board_cases_array[2].board_case_value == "O" && @board_cases_array[4].board_case_value == "O" && @board_cases_array[6].board_case_value == "O"
-        puts "O wins!"
+        return "O"
       elsif @count_turn < 9
         return false
       else 
-        puts "It's a draw"
+        return "draw"
       end
   end
 
